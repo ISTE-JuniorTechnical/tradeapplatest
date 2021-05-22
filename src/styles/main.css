@@ -74,6 +74,15 @@ li{
     justify-content: space-around
 }
 
+#signup {
+    display: none;
+    
+}
+#stext {
+    display: none;
+    
+}
+
 #search_box_view {
     margin-top: 2rem;
 }

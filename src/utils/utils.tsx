@@ -5,17 +5,18 @@ import store from "../reduxStore/store";
 import AddCompany from "../actions/Addcompany"
 import FetchSymbols from "../actions/FetchSymbols"
 import Set from "../actions/SetMoney"
+import apifun from "../apifun"
 
 const RoundOf = (num: number, roundTo: number): number=> {
     return Number((num*1).toFixed(roundTo));
 };
 
 const getUpdate = async (symbol: string) => {
-    return await axios.get(`${process.env.REACT_APP_API_URL}/${symbol}/batch?types=quote&token=Tpk_6bdd24bca4b841dfa009a1891d1f591a`)       
+    return await axios.get(`${process.env.REACT_APP_API_URL}/${symbol}/batch?types=quote&token=${apifun()}`)       
 }
 
 const getMarketStatus = () => {
-    axios.get(`${process.env.REACT_APP_API_URL}/aapl/batch?types=quote&token=Tpk_6bdd24bca4b841dfa009a1891d1f591a`).then(data => {
+    axios.get(`${process.env.REACT_APP_API_URL}/aapl/batch?types=quote&token=${apifun()}`).then(data => {
     
         let status = data.data.quote.latestSource
         if(status.localeCompare("Close") == 0 || status.localeCompare("Previous close") == 0) {

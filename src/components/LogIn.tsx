@@ -48,7 +48,7 @@ class LogIn extends React.Component<any, State> {
 
                 <div id="login_signup" className = "mt-5">
                     <h4 className="title is-uppercase text-warning active">Log In</h4>
-                    <h4 className="title is-uppercase text-primary has-text-right has-text-weight-normal"><Link to="/signup">Sign Up</Link></h4>
+                    <h4 id ="stext" className="title is-uppercase text-primary has-text-right has-text-weight-normal"><Link to="/signup">Sign Up</Link></h4>
                 </div>
                 <form onSubmit={this.handleSubmit}>
             

@@ -5,6 +5,7 @@ import Autosuggest from 'react-autosuggest';
 import store from "../reduxStore/store"
 import StockAreaChart from "./StockAreaChart"
 import { RoundOf } from "../utils/utils"
+import apifun from "../apifun"
 
 const _ = require("lodash");
 
@@ -41,7 +42,7 @@ class View extends React.Component {
     getData = () => {
         this.setState({loading: true})
         axios.
-            get(`${process.env.REACT_APP_API_URL}/${String(this.state.symbol)}/batch?types=quote&token=Tpk_6bdd24bca4b841dfa009a1891d1f591a`).
+            get(`${process.env.REACT_APP_API_URL}/${String(this.state.symbol)}/batch?types=quote&token=${apifun()}`).
             then(data => {
                 this.setState({quote: data.data.quote, symbol: "", loading: false});
             }).catch(() => {
@@ -78,8 +79,9 @@ class View extends React.Component {
     };
 
     getStockData = () => {
+        console.log(apifun());
         let stockData = []
-        axios.get(`${process.env.REACT_APP_API_URL}/${this.state.symbol}/chart/1y?chartInterval=10&token=Tpk_6bdd24bca4b841dfa009a1891d1f591a`).then(data => {
+        axios.get(`${process.env.REACT_APP_API_URL}/${this.state.symbol}/chart/1y?chartInterval=10&token=${apifun()}`).then(data => {
             data.data.map(item => {
                 let temp = {
                     "date": item.date,

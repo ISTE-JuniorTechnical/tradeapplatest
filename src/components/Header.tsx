@@ -72,6 +72,14 @@ export default class Header extends React.Component {
 
 
                             </li>
+                            <li className="nav-item">
+
+
+
+                            <a href="/stock.pdf" className="navbar-item nav-link " target="_blank">Symbol pdf</a>
+
+
+                            </li>
 
 
 

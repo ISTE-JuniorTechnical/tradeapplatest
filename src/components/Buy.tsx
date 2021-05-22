@@ -8,6 +8,7 @@ import BuyAction from "../actions/Buy";
 import Addcompany from "../actions/Addcompany";
 
 import { history } from "../router/Approuter";
+import apifun from "../apifun"
 
 interface State {
     symbol: string,
@@ -39,7 +40,7 @@ class Buy extends React.Component<any, State> {
         }
 
         axios
-            .get(`${process.env.REACT_APP_API_URL}/${String(this.state.symbol).trim()}/batch?types=quote&token=Tpk_6bdd24bca4b841dfa009a1891d1f591a`)
+            .get(`${process.env.REACT_APP_API_URL}/${String(this.state.symbol).trim()}/batch?types=quote&token=${apifun()}`)
             .then(data => {
 
                 const shareWorth = RoundOf(data.data.quote.latestPrice * Number(this.state.quantity), 2);
