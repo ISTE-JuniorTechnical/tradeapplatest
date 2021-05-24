@@ -72,6 +72,15 @@ export default class Header extends React.Component {
 
 
                             </li>
+
+                            <li className="nav-item">
+
+                                <a href="https://in.tradingview.com/chart/" className="navbar-item nav-link " target="_blank">Charts</a>
+
+                            </li>
+
+
+
                             <li className="nav-item">
 
 
