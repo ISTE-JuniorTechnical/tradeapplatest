@@ -101,9 +101,9 @@ class Home extends React.Component <PassedProps> {
 								<tr key={e._id}>
 									<td>{e.companyName}</td>
 									<td>{e.quantity}</td>
-									<td>$ RoundOf({e.buyPrice},2)</td>
-									<td>$ RoundOf({e.currPrice},2)</td>
-									<td>$ RoundOf({e.shareWorth},2)</td>
+									<td>${RoundOf(e.buyPrice,2)}</td>
+									<td>${ RoundOf(e.currPrice,2)}</td>
+									<td>${RoundOf(e.shareWorth,2)}</td>
 									<td>{e.profitLoss >= 0 ? <span id="profit">$ {e.profitLoss}</span> : <span id="loss">$ {e.profitLoss}</span>}</td>
 									<td><SellButton id={e._id} className = "bg-warning rounded" allValue={e}></SellButton></td>
 								</tr>
